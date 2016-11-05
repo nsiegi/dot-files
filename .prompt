@@ -1,0 +1,7 @@
+
+PS1="${color_green}\u@\h "
+PS1+="${color_blue}\w"
+PS1+="${color_purple}\$(parse_git_branch '(%s)') "
+PS1+="${color_red}\$ "
+PS1+="${color_reset}"
+export PS1

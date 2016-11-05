@@ -1,0 +1,10 @@
+
+alias ls='ls --color=auto'
+# Short ls -lh command...
+alias ll='ls -lh --color=auto'
+# Activate python environment in current directory
+alias activate='source .env/bin/activate'
+# Call serve_static wih alias
+alias serve_static=serve_static
+# Call json formatter
+alias json=format_json

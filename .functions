@@ -1,0 +1,25 @@
+# Parse active git branch if it exist in current folder
+parse_git_branch() {
+    if [ -d ".git" ]; then
+        _format="${1:-%s}" # Set default value '%s' if first argument not set
+        _branch="$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')"
+        _branch="${_branch:-unknown}"
+        printf "$_format" "$_branch"
+    fi
+}
+
+# Static server with python3
+serve_static() {
+    python3 -m http.server "$1"
+}
+
+# Prettyprint json with python
+format_json() {
+    if [ -f "$1" ]; then
+        python3 -m json.tool < "$1"
+    elif [ -t 0 ]; then
+        python3 -m json.tool <<< "$*"
+    else
+        python3 -m json.tool
+    fi
+}
